@@ -1,0 +1,195 @@
+:root {
+  --bg: linear-gradient(135deg,#ff9ecb,#7da7ff);
+  --glass: rgba(255,255,255,0.15);
+  --text: #ffffff;
+  --accent: #ff4fa3;
+  --button-bg: #ff4fa3;
+  --button-hover: #ff2e91;
+  --font-main: 'Poppins', sans-serif;
+}
+
+/* Smooth page fade */
+body {
+  margin: 0;
+  font-family: var(--font-main);
+  background: var(--bg);
+  background-size: 300% 300%;
+  animation: gradientMove 12s ease infinite;
+  color: var(--text);
+  transition: font-family 0.4s ease;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Topbar */
+.topbar {
+  position: fixed;
+  top:0;
+  width:100%;
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  padding:12px;
+  background: rgba(0,0,0,0.35);
+  backdrop-filter: blur(15px);
+  z-index:1000;
+}
+
+.topbar button {
+  background: var(--button-bg);
+  border:none;
+  padding:8px 16px;
+  border-radius:25px;
+  color:white;
+  cursor:pointer;
+  transition: 0.3s;
+}
+
+.topbar button:hover {
+  background: var(--button-hover);
+  transform: scale(1.05);
+}
+
+/* Main */
+.mainContent {
+  margin-top:100px;
+  padding:40px;
+  text-align:center;
+}
+
+/* Glass Card */
+.glassCard {
+  background: var(--glass);
+  padding:30px;
+  margin:25px auto;
+  border-radius:25px;
+  width:70%;
+  backdrop-filter: blur(25px);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+  transition: 0.3s;
+}
+
+.glassCard:hover {
+  transform: translateY(-5px);
+}
+
+/* Gallery */
+.galleryGrid {
+  display:grid;
+  grid-template-columns: repeat(auto-fill,minmax(220px,1fr));
+  gap:25px;
+  padding:20px;
+}
+
+.galleryGrid img {
+  width:100%;
+  border-radius:20px;
+  transition: 0.4s ease;
+}
+
+.galleryGrid img:hover {
+  transform: scale(1.08);
+}
+
+/* Modals */
+.starModal,
+.themeModal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.themeBox, .starBox {
+  background: var(--glass);
+  padding:40px;
+  border-radius:25px;
+  text-align:center;
+  backdrop-filter:blur(20px);
+  width:350px;
+}
+
+.hiddenText {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.5s ease;
+}
+
+.hiddenText.showHidden {
+  opacity: 1;
+  max-height: 200px;
+  margin-top: 10px;
+}
+.hidden {
+  display: none !important;
+}
+
+/* Lock Screen */
+.lockScreen {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+  background:black;
+}
+
+.lockBox {
+  background: rgba(255,255,255,0.1);
+  padding:50px;
+  border-radius:25px;
+  backdrop-filter:blur(20px);
+}
+
+/* Flower */
+.flowerGif {
+  width:220px;
+  border-radius:20px;
+  margin-bottom:20px;
+}
+
+#flowerContainer {
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  overflow:hidden;
+}
+
+.fallingFlower {
+  position:absolute;
+  font-size:30px;
+  animation: fall linear forwards;
+}
+
+@keyframes fall {
+  0% { transform: translateY(-100px); opacity:1; }
+  100% { transform: translateY(100vh); opacity:0.9; }
+}
+
+/* Stars */
+.stars span {
+  font-size:40px;
+  cursor:pointer;
+  color:#ccc;
+  transition:0.3s;
+}
+
+.stars span:hover {
+  transform:scale(1.2);
+}
+.starGif {
+  width: 150px;
+  margin: 15px 0;
+  display: block;
+}
