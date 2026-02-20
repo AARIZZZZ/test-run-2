@@ -1,24 +1,9 @@
-/* =========================
-   CONFIG
-========================= */
-
 const PASSWORD = "4utofu";
-/* =========================
-   GLOBAL AUDIO (PERSISTENT)
-========================= */
 
 if (!window.globalAudio) {
   window.globalAudio = new Audio();
   window.globalAudio.loop = true;
 }
-
-
-
-
-
-/* =========================
-   INIT
-========================= */
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -28,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   applyTheme();
 
-  // Run music on all pages
+  
   initMusic();
 
   typeWriter();
@@ -37,9 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
   restoreRating();
 });
 
-/* =========================
-   AUTH
-========================= */
+
 
 function unlockSite() {
 
@@ -50,7 +33,7 @@ function unlockSite() {
 
     localStorage.setItem("unlocked", "true");
 
-    // Tell next page to autoplay
+    
     localStorage.setItem("autoplay", "true");
 
     window.location = "home.html";
@@ -75,9 +58,6 @@ function goPage(page) {
   window.location = page;
 }
 
-/* =========================
-   THEME SYSTEM
-========================= */
 
 function changeTheme(theme) {
   localStorage.setItem("theme", theme);
@@ -129,9 +109,7 @@ function closeThemeModal() {
   if (modal) modal.classList.add("hidden");
 }
 
-/* =========================
-   ADVANCED MUSIC PLAYER
-========================= */
+
 
 let audio = new Audio();
 let playlist = [];
@@ -244,9 +222,7 @@ function renderPlaylistUI() {
   });
 }
 
-/* =========================
-   TYPEWRITER
-========================= */
+
 
 function typeWriter() {
 
@@ -254,7 +230,7 @@ function typeWriter() {
   if (!el) return;
 
   const text =
-    "hi, i know how much of a jerk i have been... but i adore you deeply. i am sorry, truly. every part of me craves you.";
+    "IK that any amount of sorries cant fill the void i created..but all i want you to know is that, for you, i would be the absolute extreme. I adore you and with all due respect, i dont mind getting stabbed by you, MS. Tofu :)";
 
   let i = 0;
 
@@ -266,9 +242,7 @@ function typeWriter() {
 
 }
 
-/* =========================
-   REMARK SYSTEM
-========================= */
+
 
 function saveRemark() {
 
@@ -304,11 +278,7 @@ function loadRemarks() {
 
 }
 
-/* =========================
-   FLOWER RAIN
-========================= */
 
-function startFlowerRain() {
 
   const container = document.getElementById("flowerContainer");
   if (!container) return;
@@ -330,9 +300,6 @@ function startFlowerRain() {
   }
 }
 
-/* =========================
-   STAR RATING
-========================= */
 
 function openStarModal() {
   const modal = document.getElementById("starModal");
@@ -397,9 +364,7 @@ function restoreRating() {
   highlightStars(parseInt(saved));
   showMessage(parseInt(saved));
 }
-/* =========================
-   INIT MUSIC
-========================= */
+
 
 function initMusic() {
 
@@ -427,7 +392,7 @@ function initMusic() {
 
   playlist = playlists[theme];
 
-  // Only load if audio is not already playing something
+  
   if (!audio.src || !audio.src.includes(theme)) {
     currentTrack = 0;
     audio.src = playlist[currentTrack];
@@ -469,5 +434,6 @@ function revealText() {
   if (!text) return;
 
   text.classList.toggle("showHidden");
+
 
 }
