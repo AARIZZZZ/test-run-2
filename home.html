@@ -3,24 +3,64 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>For You :)</title>
+  <title>For Tofu</title>
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cinzel:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="lockScreen">
+<body>
 
-  <div class="lock-orb lock-orb-1"></div>
-  <div class="lock-orb lock-orb-2"></div>
-  <div class="lock-orb lock-orb-3"></div>
+  <div class="topbar">
+    <button class="hamburger-btn" onclick="openSidebar()">
+      <span></span><span></span><span></span>
+    </button>
+    <span class="topbar-brand">For Tofu ♡</span>
+    <div class="topbar-right">
+      <button onclick="goPage('home.html')">🏠 Home</button>
+      <button onclick="goPage('flower.html')">🌻 Flowers</button>
+      <button onclick="openThemeModal()">🎨 Theme</button>
+      <button onclick="openStarModal()">⭐ Rate</button>
+      <button onclick="logout()">🚪 Logout</button>
+    </div>
+  </div>
 
-  <div class="lockBox">
-    <span class="lock-icon">🔐</span>
-    <h2>Just for you</h2>
-    <p class="lock-subtitle">enter the password, love</p>
+  <main class="mainContent">
+    <h1>To, Tofu..</h1>
+    <p style="color: rgba(255,255,255,0.7); margin-bottom: 30px; font-size: 0.95rem;">This little corner of the internet belongs to you.</p>
 
-    <input type="password" id="passwordInput" placeholder="••••••••" autofocus>
-    <button class="unlock-btn" onclick="unlockSite()">Enter ♡</button>
-    <p id="errorMsg"></p>
+    <section class="glassCard">
+      <h2>Something for you</h2>
+      <p>Okay.. so, you already know everything, so I don't have to make a kickstart, but here's the thing.. Tofu, I miss you, a lot. I would be lyin if I don't say this, but you are my silver lining, the reason I go crazy, the reason I find myself awake all night thinking bout you... In this weird monotonous way, which I adore. You are my best decision, be it as friends, or be it in a relo.. and you have no idea how much it hurts me every second when I realize you ain't here with me.. this website was built because I realized that maybe, your mood ain't at its best, so this, is for you :) ♡ And psst, if no one said it recently, I'm proud of you my lady, and I trust you with everythin. And at the same time, I love you, admire you, and look up on you :) ♡ And only you.</p>
+    </section>
+
+    <section class="glassCard">
+      <h2>One More Thing...</h2>
+      <button onclick="revealText()">Click Me? ♡</button>
+      <p id="hiddenText" class="hiddenText">
+        you are amazing, and the last thing I want is you to be away from me.
+      </p>
+    </section>
+  </main>
+
+  <!-- THEME MODAL -->
+  <div id="themeModal" class="themeModal hidden">
+    <div class="themeBox">
+      <h3>Select Your Aesthetic</h3>
+      <button class="theme-btn-summer" onclick="changeTheme('summer')">☀️ Summer</button>
+      <button class="theme-btn-vampire" onclick="changeTheme('vampire')">🦇 Vampire</button>
+      <button class="theme-btn-maxton" onclick="changeTheme('maxton')">💜 Maxton</button>
+      <button onclick="closeThemeModal()" style="background: rgba(255,255,255,0.1); margin-top: 6px;">Close</button>
+    </div>
+  </div>
+
+  <!-- STAR MODAL -->
+  <div id="starModal" class="starModal hidden">
+    <div class="starBox">
+      <h3>Rate Me? ⭐</h3>
+      <div id="starContainer" class="stars"></div>
+      <img src="assets/gifs/star.gif" class="starGif" alt="">
+      <p id="ratingMessage"></p>
+      <button onclick="closeStarModal()">Close</button>
+    </div>
   </div>
 
   <script src="js/app.js"></script>
