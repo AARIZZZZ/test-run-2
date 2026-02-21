@@ -86,7 +86,7 @@ body {
   box-shadow: 0 6px 20px rgba(255,79,163,0.4);
 }
 
-/* Hamburger menu button */
+
 .hamburger-btn {
   background: rgba(255,255,255,0.15) !important;
   border: 1px solid rgba(255,255,255,0.25) !important;
@@ -479,7 +479,7 @@ button:hover {
   margin-bottom: 22px;
 }
 
-/* Progress bar */
+
 .progress-wrap {
   width: 100%;
   height: 4px;
@@ -537,7 +537,7 @@ button:hover {
   color: #111;
 }
 
-/* Volume */
+
 .volume-row {
   display: flex;
   align-items: center;
@@ -553,7 +553,7 @@ button:hover {
   height: 4px;
 }
 
-/* Playlist */
+
 .playlist-header {
   font-size: 0.75rem;
   font-weight: 600;
@@ -602,7 +602,7 @@ button:hover {
   counter-increment: track;
 }
 
-/* Spotify section */
+
 .spotify-section {
   margin-top: 22px;
   padding-top: 18px;
@@ -778,7 +778,7 @@ button:hover {
   border-radius: 14px;
 }
 
-/* Theme preview buttons */
+
 .theme-btn-summer {
   background: linear-gradient(90deg, #FFD580, #ff9a3c) !important;
 }
@@ -789,7 +789,7 @@ button:hover {
   background: linear-gradient(90deg, #ff4fa3, #c471f5) !important;
 }
 
-/* Stars */
+
 .stars {
   display: flex;
   justify-content: center;
@@ -992,4 +992,5 @@ button:hover {
   .lockBox { width: 310px; padding: 40px 28px; }
   .music-player { padding: 22px 18px; }
 }
+
 
