@@ -28,19 +28,19 @@
 
     <div class="music-player">
 
-      <!-- Album art disc -->
+      
       <div class="music-album-art" id="albumArt">🎵</div>
 
-      <!-- Track info -->
+    
       <div class="music-track-name" id="trackName">Our Song</div>
       <div class="music-track-sub" id="trackSub">Track 1 of 3</div>
 
-      <!-- Progress bar -->
+     
       <div class="progress-wrap" onclick="seekTo(event)">
         <div class="progress-bar" id="progressBar"></div>
       </div>
 
-      <!-- Controls -->
+     
       <div class="music-controls">
         <button onclick="prevTrack()" title="Previous">⏮</button>
         <button class="play-btn" id="playPauseBtn" onclick="togglePlayPause()">▶</button>
@@ -48,7 +48,7 @@
         <button id="muteBtn" onclick="toggleMute()" title="Mute">🔊</button>
       </div>
 
-      <!-- Volume -->
+      
       <div class="volume-row">
         <span>🔈</span>
         <input type="range" min="0" max="1" step="0.05" value="1"
@@ -56,67 +56,64 @@
         <span>🔊</span>
       </div>
 
-      <!-- Playlist -->
+      
       <div class="playlist-header">Playlist</div>
       <div id="playlistContainer"></div>
 
-      <!-- ============================================
-           SPOTIFY LINKS — paste your Spotify track URLs below
-           9 total: 3 per theme (summer / vampire / maxton)
-      ============================================= -->
+      
       <div class="spotify-section">
-        <p>🎧 Open on Spotify</p>
+        <p>Open on Spotify</p>
 
-        <!-- ☀️ SUMMER (tracks 1–3) -->
+       
         <div class="playlist-header" style="margin-top:10px;">☀️ Summer</div>
-        <a class="spotify-link-btn" href="SUMMER_SPOTIFY_LINK_1" target="_blank">
+        <a class="spotify-link-btn" href="https://open.spotify.com/track/5Y6nVaayzitvsD5F7nr3DV?si=d916929164f14089" target="_blank">
           <span class="spotify-icon">🎵</span>
-          <span>Summer Song 1</span>
+          <span>West Coast</span>
         </a>
-        <a class="spotify-link-btn" href="SUMMER_SPOTIFY_LINK_2" target="_blank">
+        <a class="spotify-link-btn" href="https://open.spotify.com/track/2Bs4jQEGMycglOfWPBqrVG?si=4e4b367468f24dd9" target="_blank">
           <span class="spotify-icon">🎵</span>
-          <span>Summer Song 2</span>
+          <span>Steal My Girl</span>
         </a>
-        <a class="spotify-link-btn" href="SUMMER_SPOTIFY_LINK_3" target="_blank">
+        <a class="spotify-link-btn" href="https://open.spotify.com/track/4y5bvROuBDPr5fuwXbIBZR?si=b8c15ef795d34769" target="_blank">
           <span class="spotify-icon">🎵</span>
-          <span>Summer Song 3</span>
+          <span>Paper Rings</span>
         </a>
 
-        <!-- 🦇 VAMPIRE (tracks 1–3) -->
+        
         <div class="playlist-header" style="margin-top:14px;">🦇 Vampire</div>
-        <a class="spotify-link-btn" href="VAMPIRE_SPOTIFY_LINK_1" target="_blank">
+        <a class="spotify-link-btn" href="https://open.spotify.com/track/7nzsY8vlnKdvGOEE0rjAXZ?si=abab38e0a9c84fe8" target="_blank">
           <span class="spotify-icon">🎵</span>
-          <span>Vampire Song 1</span>
+          <span>Arabella</span>
         </a>
-        <a class="spotify-link-btn" href="VAMPIRE_SPOTIFY_LINK_2" target="_blank">
+        <a class="spotify-link-btn" href="https://open.spotify.com/track/1cQ3LIkZE68pMSnPhZWXLu?si=a4339c8448d44de6" target="_blank">
           <span class="spotify-icon">🎵</span>
-          <span>Vampire Song 2</span>
+          <span>Earned It</span>
         </a>
-        <a class="spotify-link-btn" href="VAMPIRE_SPOTIFY_LINK_3" target="_blank">
+        <a class="spotify-link-btn" href="https://open.spotify.com/track/2QjOHCTQ1Jl3zawyYOpxh6?si=997dc9bcf6624042" target="_blank">
           <span class="spotify-icon">🎵</span>
-          <span>Vampire Song 3</span>
+          <span>Sweater Weather</span>
         </a>
 
-        <!-- 💜 MAXTON (tracks 1–3) -->
+       
         <div class="playlist-header" style="margin-top:14px;">💜 Maxton</div>
-        <a class="spotify-link-btn" href="MAXTON_SPOTIFY_LINK_1" target="_blank">
+        <a class="spotify-link-btn" href="https://open.spotify.com/track/1oAwsWBovWRIp7qLMGPIet?si=5147a934a95f48cc" target="_blank">
           <span class="spotify-icon">🎵</span>
-          <span>Maxton Song 1</span>
+          <span>Apocalypse</span>
         </a>
-        <a class="spotify-link-btn" href="MAXTON_SPOTIFY_LINK_2" target="_blank">
+        <a class="spotify-link-btn" href="https://open.spotify.com/track/5FVd6KXrgO9B3JPmC8OPst?si=54f8982e393d47b1" target="_blank">
           <span class="spotify-icon">🎵</span>
-          <span>Maxton Song 2</span>
+          <span>Do I Wanna Know?</span>
         </a>
-        <a class="spotify-link-btn" href="MAXTON_SPOTIFY_LINK_3" target="_blank">
+        <a class="spotify-link-btn" href="https://open.spotify.com/track/0VO8gYVDSwM1Qdd2GsMoYK?si=14935a3296b94a82" target="_blank">
           <span class="spotify-icon">🎵</span>
-          <span>Maxton Song 3</span>
+          <span>Moth To A Flame</span>
         </a>
       </div>
 
     </div>
   </main>
 
-  <!-- THEME MODAL -->
+ 
   <div id="themeModal" class="themeModal hidden">
     <div class="themeBox">
       <h3>Select Your Aesthetic</h3>
@@ -127,7 +124,7 @@
     </div>
   </div>
 
-  <!-- STAR MODAL -->
+ 
   <div id="starModal" class="starModal hidden">
     <div class="starBox">
       <h3>Rate Me? ⭐</h3>
@@ -140,10 +137,11 @@
 
   <script src="js/app.js"></script>
   <script>
-    // Extra play/pause toggle for the music page button
+    
     function togglePlayPause() {
       if (isPlaying) { pauseMusic(); } else { playMusic(); }
     }
   </script>
 </body>
 </html>
+
