@@ -1,75 +1,106 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cinzel:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-<meta charset="UTF-8">
-<title>Gallery</title>
-<link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cinzel:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-<div class="topbar">
-<button onclick="goPage('index.html')">🏠 Home</button>
-<button onclick="goPage('gallery.html')">🖼 Gallery</button>
-<button onclick="goPage('apology.html')">💌 Apology</button>
-<button onclick="goPage('remark.html')">📝 Remark</button>
-<button onclick="goPage('music.html')">🎵 Music</button>
-<button onclick="goPage('flower.html')">🌻 Flowers</button>
-<button onclick="openThemeModal()">🎨 Theme</button>
-<button onclick="openStarModal()">⭐ Rate</button>
-<button onclick="logout()">🚪 Logout</button>
-</div>
-
-<main class="mainContent">
-<h2>Your Gallery</h2>
-
-<div class="galleryGrid">
-<img src="assets/images/1.JPG">
-<img src="assets/images/2.JPG">
-<img src="assets/images/3.PNG">
-<img src="assets/images/4.PNG">
-<img src="assets/images/5.PNG">
-<img src="assets/images/6.PNG">
-<img src="assets/images/7.PNG">
-<img src="assets/images/8.PNG">
-<img src="assets/images/9.PNG">
-<img src="assets/images/10.PNG">
-<img src="assets/images/11.PNG">
-<img src="assets/images/12.PNG">
-
-
-
-</div>
-</main>
-
-<script src="js/app.js"></script>
-
-<div id="themeModal" class="themeModal hidden">
-  <div class="themeBox">
-    <h3>Select Theme</h3>
-    <button onclick="changeTheme('summer')">Summer</button>
-    <button onclick="changeTheme('vampire')">Vampire</button>
-    <button onclick="changeTheme('maxton')">Maxton</button>
-    <button onclick="closeThemeModal()">Close</button>
+  <div class="topbar">
+    <button class="hamburger-btn" onclick="openSidebar()">
+      <span></span><span></span><span></span>
+    </button>
+    <span class="topbar-brand">Gallery 🖼</span>
+    <div class="topbar-right">
+      <button onclick="goPage('home.html')">🏠 Home</button>
+      <button onclick="goPage('flower.html')">🌻 Flowers</button>
+      <button onclick="openThemeModal()">🎨 Theme</button>
+      <button onclick="openStarModal()">⭐ Rate</button>
+      <button onclick="logout()">🚪 Logout</button>
+    </div>
   </div>
-</div>
 
+  <main class="mainContent">
+    <h2>Your Gallery 💕</h2>
+    <p style="color: rgba(255,255,255,0.6); margin-bottom: 28px; font-size: 0.9rem;">Click any photo to view it ✨</p>
 
-<div id="starModal" class="starModal hidden">
-  <div class="starBox">
-    <h3>Rate Me?</h3>
+    <div class="galleryGrid">
+      <div class="gallery-item" onclick="openLightbox('assets/images/1.JPG')">
+        <img src="assets/images/1.JPG" alt="Photo 1">
+        <div class="overlay"></div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox('assets/images/2.JPG')">
+        <img src="assets/images/2.JPG" alt="Photo 2">
+        <div class="overlay"></div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox('assets/images/3.PNG')">
+        <img src="assets/images/3.PNG" alt="Photo 3">
+        <div class="overlay"></div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox('assets/images/4.PNG')">
+        <img src="assets/images/4.PNG" alt="Photo 4">
+        <div class="overlay"></div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox('assets/images/5.PNG')">
+        <img src="assets/images/5.PNG" alt="Photo 5">
+        <div class="overlay"></div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox('assets/images/6.PNG')">
+        <img src="assets/images/6.PNG" alt="Photo 6">
+        <div class="overlay"></div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox('assets/images/7.PNG')">
+        <img src="assets/images/7.PNG" alt="Photo 7">
+        <div class="overlay"></div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox('assets/images/8.PNG')">
+        <img src="assets/images/8.PNG" alt="Photo 8">
+        <div class="overlay"></div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox('assets/images/9.PNG')">
+        <img src="assets/images/9.PNG" alt="Photo 9">
+        <div class="overlay"></div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox('assets/images/10.PNG')">
+        <img src="assets/images/10.PNG" alt="Photo 10">
+        <div class="overlay"></div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox('assets/images/11.PNG')">
+        <img src="assets/images/11.PNG" alt="Photo 11">
+        <div class="overlay"></div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox('assets/images/12.PNG')">
+        <img src="assets/images/12.PNG" alt="Photo 12">
+        <div class="overlay"></div>
+      </div>
+    </div>
+  </main>
 
-    <div id="starContainer" class="stars"></div>
-
-    <img src="assets/gifs/star.gif" class="starGif">
-
-    <p id="ratingMessage"></p>
-
-    <button onclick="closeStarModal()">Close</button>
+  <!-- THEME MODAL -->
+  <div id="themeModal" class="themeModal hidden">
+    <div class="themeBox">
+      <h3>Select Your Aesthetic</h3>
+      <button class="theme-btn-summer" onclick="changeTheme('summer')">☀️ Summer</button>
+      <button class="theme-btn-vampire" onclick="changeTheme('vampire')">🦇 Vampire</button>
+      <button class="theme-btn-maxton" onclick="changeTheme('maxton')">💜 Maxton</button>
+      <button onclick="closeThemeModal()" style="background: rgba(255,255,255,0.1); margin-top: 6px;">Close</button>
+    </div>
   </div>
-</div>
 
+  <!-- STAR MODAL -->
+  <div id="starModal" class="starModal hidden">
+    <div class="starBox">
+      <h3>Rate Me? ⭐</h3>
+      <div id="starContainer" class="stars"></div>
+      <img src="assets/gifs/star.gif" class="starGif" alt="">
+      <p id="ratingMessage"></p>
+      <button onclick="closeStarModal()">Close</button>
+    </div>
+  </div>
+
+  <script src="js/app.js"></script>
 </body>
-
 </html>
-
