@@ -7,7 +7,11 @@ const PASSWORD = "4utofu";
    PATH HELPER (fixes GitHub Pages routing)
 ============================================= */
 function getPath(page) {
-  const base = window.location.href.substring(0, window.location.href.lastIndexOf("/") + 1);
+  // Works on GitHub Pages (e.g. username.github.io/repo/) and locally
+  const href = window.location.href;
+  // Strip any filename (anything after last slash that contains a dot)
+  const base = href.substring(0, href.lastIndexOf("/") + 1);
+  // If base ends with the repo name followed by slash, keep it; otherwise it's fine
   return base + page;
 }
 
@@ -23,7 +27,8 @@ let isPlaying = false;
    DOMContentLoaded
 ============================================= */
 document.addEventListener("DOMContentLoaded", () => {
-  const isPasswordPage = window.location.pathname.includes("password");
+  const path = window.location.pathname;
+  const isPasswordPage = path.includes("password") || path.includes("index") || path.endsWith("/");
 
   if (!isPasswordPage) {
     checkAuth();
@@ -408,7 +413,7 @@ function typeWriter() {
   const el = document.getElementById("typewriter");
   if (!el) return;
 
-  const text = "hi, i know how much of a jerk i have been... but i adore you deeply. i am sorry, truly. every part of me craves you.";
+  const text = "hi,IK how much of an immature retard i have been and how much i have broken your heart. This website, is just for you, my special and fav one. Always and till infinity.";
   el.classList.add("typing-cursor");
   let i = 0;
 
@@ -558,11 +563,11 @@ function highlightStars(value, hover = false) {
 
 function showMessage(value) {
   const messages = {
-    1: "Riz, Fuck-off 😒",
-    2: "Not enough to impress me 🙄",
-    3: "Maybe I'll go for a stroll.. 🤔",
-    4: "Movie works for me 🎬",
-    5: "Alright, you deserve some hickeys 💋"
+    1: "Riz, Fuck-off ",
+    2: "Not enough to impress me ",
+    3: "Maybe I'll go for a stroll.. ",
+    4: "Movie works for me ",
+    5: "Alright, you deserve some hickeys "
   };
   const msg = document.getElementById("ratingMessage");
   if (msg) msg.textContent = messages[value] || "";
