@@ -380,7 +380,7 @@ function playApologySong() {
       clearInterval(fadeOut);
       audio.pause();
       audio.volume = 1;
-      audio.src = "assets/songs/apology.mp3";
+      audio.src = "assets/songs/apology/1.mp3";
       audio.loop = true;
       audio.play().catch(() => {});
       isPlaying = true;
@@ -550,4 +550,5 @@ function restoreRating() {
   highlightStars(val, false);
   showMessage(val);
 }
+
 
