@@ -393,7 +393,7 @@ function typeWriter() {
   const el = document.getElementById("typewriter");
   if (!el) return;
 
-  const text = "hi,IK how much of an immature retard i have been and how much i have broken your heart. This website, is just for you, my special and fav one. Always and till infinity.";
+  const text = "So idk where to exactly start from...whilst i have made a lot of mistakes and portrayed myself shady in the worst and weirdest way possible and honestly had flaws to beging with, there a few things i think i should make you aware about the fact that, you have always been the picture girl for me. Honestly speaking, you have always meant more than just a relationship to me, you mean like my own person..not just a girlfriend,or a partner, but as someone i look upto.  Ms. Tabassum Rajbia, adoring you is an understatement, idk but..yea, i be doing way more than that. And not just for saying..i do. Hm, i love you, a lot, so much so i let my guard down because nothing is more important to me than you, and won't ever will be :). I'm sorry, My silver lining, my litchi drink, my literal addiction, i have been a jerk and i deserve to get stabbed by you. This,is yours, and not just this website..everything that there is between us, is yours :), coz what you are, will always be a cut above for everythin that there is. Always, and forever";
   el.classList.add("typing-cursor");
   let i = 0;
 
@@ -550,5 +550,6 @@ function restoreRating() {
   highlightStars(val, false);
   showMessage(val);
 }
+
 
 
