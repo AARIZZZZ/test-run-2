@@ -208,9 +208,9 @@ const playlists = {
 };
 
 const trackNames = {
-  summer:  ["Summer Breeze","Golden Hours","Soft Rays"],
-  vampire: ["Crimson Night","Dark Romance","Midnight Waltz"],
-  maxton:  ["For You Always","Close To Me","Our Song"]
+  summer:  ["West Coast","Steal My Girl","Paper Rings"],
+  vampire: ["Arabella","Earned It","Sweater Weather"],
+  maxton:  ["Apocalypse","Do I Wanna Know?","Moth To A Flame"]
 };
 
 function initMusic() {
@@ -367,9 +367,7 @@ function renderPlaylistUI() {
   });
 }
 
-/* =============================================
-   APOLOGY SONG
-============================================= */
+
 function playApologySong() {
   if (!window.location.pathname.includes("apology")) return;
 
@@ -389,14 +387,12 @@ function playApologySong() {
   }, 80);
 }
 
-/* =============================================
-   TYPEWRITER
-============================================= */
+
 function typeWriter() {
   const el = document.getElementById("typewriter");
   if (!el) return;
 
-  const text = "hi, i know how much of a jerk i have been... but i adore you deeply. i am sorry, truly. every part of me craves you.";
+  const text = "hi, ik how much of a retard i have been and how much i have broken your heart..if i could, i would fix it all. This, is for you, my special and fav person. ALways, and forever.";
   el.classList.add("typing-cursor");
   let i = 0;
 
@@ -410,16 +406,12 @@ function typeWriter() {
   }, 42);
 }
 
-/* =============================================
-   REVEAL TEXT
-============================================= */
+
 function revealText() {
   document.getElementById("hiddenText")?.classList.toggle("showHidden");
 }
 
-/* =============================================
-   REMARK SYSTEM
-============================================= */
+
 function saveRemark() {
   const input = document.getElementById("remarkInput");
   if (!input) return;
@@ -452,9 +444,7 @@ function loadRemarks() {
   });
 }
 
-/* =============================================
-   FLOWER RAIN
-============================================= */
+
 function startFlowerRain() {
   const container = document.getElementById("flowerContainer");
   if (!container) return;
@@ -475,9 +465,7 @@ function startFlowerRain() {
   }
 }
 
-/* =============================================
-   GALLERY LIGHTBOX
-============================================= */
+
 function openLightbox(src) {
   let lb = document.getElementById("lightbox");
   if (!lb) {
@@ -500,9 +488,7 @@ function closeLightbox() {
   if (lb) lb.classList.remove("active");
 }
 
-/* =============================================
-   STAR RATING
-============================================= */
+
 function openStarModal() {
   document.getElementById("starModal")?.classList.remove("hidden");
 }
@@ -546,11 +532,11 @@ function highlightStars(value, hover = false) {
 
 function showMessage(value) {
   const messages = {
-    1: "Riz, Fuck-off 😒",
-    2: "Not enough to impress me 🙄",
-    3: "Maybe I'll go for a stroll.. 🤔",
-    4: "Movie works for me 🎬",
-    5: "Alright, you deserve some hickeys 💋"
+    1: "Riz, Fuck-off ",
+    2: "Not enough to impress me ",
+    3: "Maybe I'll go for a stroll.. ",
+    4: "Movie works for me ",
+    5: "Alright, you deserve some hickeys "
   };
   const msg = document.getElementById("ratingMessage");
   if (msg) msg.textContent = messages[value] || "";
@@ -563,3 +549,4 @@ function restoreRating() {
   highlightStars(val, false);
   showMessage(val);
 }
+
