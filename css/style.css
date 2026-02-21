@@ -1,6 +1,3 @@
-/* =======================================
-   ROOT & THEMES
-======================================= */
 :root {
   --bg: linear-gradient(-45deg,#ff9ecb,#c471f5,#7da7ff,#fa71cd);
   --glass: rgba(255,255,255,0.12);
@@ -15,9 +12,7 @@
   --font-display: 'Great Vibes', cursive;
 }
 
-/* =======================================
-   BASE
-======================================= */
+
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
@@ -36,9 +31,7 @@ body {
   100% { background-position: 0% 50%; }
 }
 
-/* =======================================
-   TOPBAR
-======================================= */
+
 .topbar {
   position: fixed;
   top: 0;
@@ -123,9 +116,7 @@ body {
   box-shadow: none !important;
 }
 
-/* =======================================
-   SIDEBAR (LIQUID GLASS)
-======================================= */
+
 .sidebar-overlay {
   position: fixed;
   inset: 0;
@@ -160,7 +151,7 @@ body {
   box-shadow: 8px 0 40px rgba(0,0,0,0.3);
 }
 
-/* liquid glass inner highlight */
+
 .sidebar::before {
   content: '';
   position: absolute;
@@ -254,9 +245,7 @@ body {
   gap: 6px;
 }
 
-/* =======================================
-   MAIN CONTENT
-======================================= */
+
 .mainContent {
   margin-top: 72px;
   padding: 40px 32px;
@@ -278,9 +267,7 @@ body {
   text-shadow: 0 2px 10px rgba(0,0,0,0.15);
 }
 
-/* =======================================
-   GLASS CARD
-======================================= */
+
 .glassCard {
   background: var(--glass);
   padding: 32px;
@@ -315,9 +302,7 @@ body {
   margin-top: 14px;
 }
 
-/* =======================================
-   BUTTONS (GLOBAL)
-======================================= */
+
 button {
   background: var(--button-bg);
   border: none;
@@ -338,9 +323,7 @@ button:hover {
   box-shadow: 0 6px 18px rgba(0,0,0,0.2);
 }
 
-/* =======================================
-   HIDDEN TEXT REVEAL
-======================================= */
+
 .hiddenText {
   opacity: 0;
   max-height: 0;
@@ -357,9 +340,7 @@ button:hover {
   margin-top: 12px;
 }
 
-/* =======================================
-   GALLERY
-======================================= */
+
 .galleryGrid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -404,7 +385,7 @@ button:hover {
   opacity: 1;
 }
 
-/* Lightbox */
+
 .lightbox {
   position: fixed;
   inset: 0;
@@ -448,9 +429,7 @@ button:hover {
   padding: 0;
 }
 
-/* =======================================
-   MUSIC PLAYER
-======================================= */
+
 .music-player {
   max-width: 520px;
   margin: 0 auto;
@@ -665,9 +644,7 @@ button:hover {
   font-size: 1.2rem;
 }
 
-/* =======================================
-   REMARK / TEXTAREA
-======================================= */
+
 #remarkInput {
   width: 100%;
   max-width: 520px;
@@ -711,9 +688,7 @@ button:hover {
   margin-top: 6px;
 }
 
-/* =======================================
-   APOLOGY TYPEWRITER
-======================================= */
+
 #typewriter {
   font-size: 1.05rem;
   line-height: 1.9;
@@ -733,9 +708,7 @@ button:hover {
   50%       { opacity: 0; }
 }
 
-/* =======================================
-   FLOWER PAGE
-======================================= */
+
 .flowerGif {
   width: 200px;
   border-radius: 20px;
@@ -764,9 +737,7 @@ button:hover {
   100% { transform: translateY(110vh) rotate(360deg); opacity: 0.6; }
 }
 
-/* =======================================
-   MODALS
-======================================= */
+
 .themeModal,
 .starModal {
   position: fixed;
@@ -855,9 +826,7 @@ button:hover {
   margin-top: 4px;
 }
 
-/* =======================================
-   PASSWORD / LOCK SCREEN
-======================================= */
+
 .lockScreen {
   display: flex;
   justify-content: center;
@@ -870,7 +839,7 @@ button:hover {
   position: relative;
 }
 
-/* Floating orbs behind the lock box */
+
 .lock-orb {
   position: absolute;
   border-radius: 50%;
@@ -918,7 +887,7 @@ button:hover {
   text-align: center;
 }
 
-/* inner top shine */
+
 .lockBox::before {
   content: '';
   position: absolute;
@@ -1012,9 +981,7 @@ button:hover {
   75%       { transform: translateX(8px); }
 }
 
-/* =======================================
-   RESPONSIVE
-======================================= */
+
 @media (max-width: 600px) {
   .mainContent { padding: 24px 16px; }
   .glassCard { padding: 22px 18px; width: auto; }
@@ -1025,3 +992,4 @@ button:hover {
   .lockBox { width: 310px; padding: 40px 28px; }
   .music-player { padding: 22px 18px; }
 }
+
