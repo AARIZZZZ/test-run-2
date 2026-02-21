@@ -1,31 +1,23 @@
-/* =============================================
-   CONFIG
-============================================= */
+
 const PASSWORD = "4utofu";
 
-/* =============================================
-   PATH HELPER (fixes GitHub Pages routing)
-============================================= */
+
 function getPath(page) {
-  // Works on GitHub Pages (e.g. username.github.io/repo/) and locally
+ 
   const href = window.location.href;
-  // Strip any filename (anything after last slash that contains a dot)
+  
   const base = href.substring(0, href.lastIndexOf("/") + 1);
-  // If base ends with the repo name followed by slash, keep it; otherwise it's fine
+ 
   return base + page;
 }
 
-/* =============================================
-   AUDIO (single instance, persistent)
-============================================= */
+
 let audio = window._siteAudio || (window._siteAudio = new Audio());
 let playlist = [];
 let currentTrack = 0;
 let isPlaying = false;
 
-/* =============================================
-   DOMContentLoaded
-============================================= */
+
 document.addEventListener("DOMContentLoaded", () => {
   const path = window.location.pathname;
   const isPasswordPage = path.includes("password") || path.includes("index") || path.endsWith("/");
@@ -41,13 +33,11 @@ document.addEventListener("DOMContentLoaded", () => {
     loadRemarks();
     playApologySong();
   } else {
-    applyTheme(); // keep gradient on lock screen too
+    applyTheme();
   }
 });
 
-/* =============================================
-   AUTH
-============================================= */
+
 function unlockSite() {
   const input = document.getElementById("passwordInput");
   const errMsg = document.getElementById("errorMsg");
@@ -60,14 +50,14 @@ function unlockSite() {
   } else {
     errMsg.innerText = "Wrong password 🔐";
     input.value = "";
-    // Re-trigger shake animation
+   
     errMsg.style.animation = "none";
     void errMsg.offsetWidth;
     errMsg.style.animation = "";
   }
 }
 
-// Allow Enter key on password page
+
 document.addEventListener("keydown", (e) => {
   if (e.key === "Enter" && document.getElementById("passwordInput")) {
     unlockSite();
@@ -92,11 +82,9 @@ function goPage(page) {
   window.location.href = getPath(page);
 }
 
-/* =============================================
-   SIDEBAR
-============================================= */
+
 function setupSidebar() {
-  // Create sidebar HTML if it doesn't already exist
+  
   if (document.getElementById("sidebar")) return;
 
   const overlay = document.createElement("div");
@@ -161,9 +149,7 @@ function closeSidebar() {
   document.getElementById("sidebarOverlay")?.classList.remove("active");
 }
 
-/* =============================================
-   THEME
-============================================= */
+
 const themes = {
   summer: {
     bg: "linear-gradient(-45deg,#87CEEB,#FFD580,#ff9a9e,#fad0c4)",
@@ -187,7 +173,7 @@ const themes = {
 
 function changeTheme(theme) {
   localStorage.setItem("theme", theme);
-  window._activeTheme = null; // force initMusic to treat this as a new theme
+  window._activeTheme = null; 
   applyTheme();
   initMusic();
   closeThemeModal();
@@ -211,9 +197,7 @@ function closeThemeModal() {
   document.getElementById("themeModal")?.classList.add("hidden");
 }
 
-/* =============================================
-   MUSIC PLAYER  ← FIXED
-============================================= */
+
 const playlists = {
   summer:  ["assets/songs/summer/1.mp3","assets/songs/summer/2.mp3","assets/songs/summer/3.mp3"],
   vampire: ["assets/songs/vampire/1.mp3","assets/songs/vampire/2.mp3","assets/songs/vampire/3.mp3"],
@@ -236,7 +220,7 @@ function initMusic() {
   const theme = localStorage.getItem("theme") || "maxton";
   const newPlaylist = playlists[theme];
 
-  // Always reset playlist when theme changes
+  
   const lastTheme = window._activeTheme;
   if (lastTheme !== theme) {
     window._activeTheme = theme;
@@ -248,26 +232,26 @@ function initMusic() {
     audio.load();
     audio.loop = false;
     audio.preload = "auto";
-    // Resume playing if music was already going
+    
     if (wasPlaying) {
       audio.play().then(() => { isPlaying = true; updatePlayerUI(); }).catch(() => {});
     }
   } else {
-    // Same theme, just make sure playlist reference is current
+   
     playlist = newPlaylist;
   }
 
-  // Auto-advance tracks
+  
   audio.onended = nextTrack;
 
-  // Autoplay after login
+ 
   if (localStorage.getItem("autoplay") === "true") {
     localStorage.removeItem("autoplay");
     audio.play().then(() => {
       isPlaying = true;
       updatePlayerUI();
     }).catch(() => {
-      // Browser blocked — set flag so user click will resume
+     
       isPlaying = false;
     });
   }
@@ -384,13 +368,11 @@ function renderPlaylistUI() {
   });
 }
 
-/* =============================================
-   APOLOGY SONG
-============================================= */
+
 function playApologySong() {
   if (!window.location.pathname.includes("apology")) return;
 
-  // Fade out current theme music, then play the apology track
+ 
   const fadeOut = setInterval(() => {
     if (audio.volume > 0.05) {
       audio.volume = Math.max(0, audio.volume - 0.05);
@@ -406,9 +388,7 @@ function playApologySong() {
   }, 80);
 }
 
-/* =============================================
-   TYPEWRITER
-============================================= */
+
 function typeWriter() {
   const el = document.getElementById("typewriter");
   if (!el) return;
@@ -427,16 +407,12 @@ function typeWriter() {
   }, 42);
 }
 
-/* =============================================
-   REVEAL TEXT
-============================================= */
+
 function revealText() {
   document.getElementById("hiddenText")?.classList.toggle("showHidden");
 }
 
-/* =============================================
-   REMARK SYSTEM
-============================================= */
+
 function saveRemark() {
   const input = document.getElementById("remarkInput");
   if (!input) return;
@@ -469,9 +445,7 @@ function loadRemarks() {
   });
 }
 
-/* =============================================
-   FLOWER RAIN
-============================================= */
+
 function startFlowerRain() {
   const container = document.getElementById("flowerContainer");
   if (!container) return;
@@ -492,9 +466,7 @@ function startFlowerRain() {
   }
 }
 
-/* =============================================
-   GALLERY LIGHTBOX
-============================================= */
+
 function openLightbox(src) {
   let lb = document.getElementById("lightbox");
   if (!lb) {
@@ -517,9 +489,7 @@ function closeLightbox() {
   if (lb) lb.classList.remove("active");
 }
 
-/* =============================================
-   STAR RATING
-============================================= */
+
 function openStarModal() {
   document.getElementById("starModal")?.classList.remove("hidden");
 }
@@ -580,3 +550,4 @@ function restoreRating() {
   highlightStars(val, false);
   showMessage(val);
 }
+
