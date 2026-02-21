@@ -2,10 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="refresh" content="0; url=password.html">
   <title>Redirecting...</title>
 </head>
 <body>
-  <script>window.location.replace("password.html");</script>
+  <script>
+    
+    const base = window.location.href.substring(0, window.location.href.lastIndexOf("/") + 1);
+    window.location.replace(base + "password.html");
+  </script>
 </body>
 </html>
