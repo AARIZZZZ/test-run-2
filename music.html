@@ -1,67 +1,149 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cinzel:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-<meta charset="UTF-8">
-<title>Music</title>
-<link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Music</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cinzel:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-<div class="topbar">
-<button onclick="goPage('index.html')">🏠 Home</button>
-<button onclick="goPage('gallery.html')">🖼 Gallery</button>
-<button onclick="goPage('apology.html')">💌 Apology</button>
-<button onclick="goPage('remark.html')">📝 Remark</button>
-<button onclick="goPage('music.html')">🎵 Music</button>
-<button onclick="goPage('flower.html')">🌻 Flowers</button>
-<button onclick="openThemeModal()">🎨 Theme</button>
-<button onclick="openStarModal()">⭐ Rate</button>
-<button onclick="logout()">🚪 Logout</button>
-</div>
-
-<main class="mainContent">
-<h2>Music Player</h2>
-
-<div class="glassCard">
-  <button onclick="playMusic()">▶ Play</button>
-  <button onclick="pauseMusic()">⏸ Pause</button>
-  <button onclick="prevTrack()">⏮ Prev</button>
-  <button onclick="nextTrack()">⏭ Next</button>
-  <button onclick="toggleMute()">🔇 Mute</button>
-
-  <div id="playlistContainer"></div>
-</div>
-</main>
-
-<script src="js/app.js"></script>
-
-
-<div id="themeModal" class="themeModal hidden">
-  <div class="themeBox">
-    <h3>Select Theme</h3>
-    <button onclick="changeTheme('summer')">Summer</button>
-    <button onclick="changeTheme('vampire')">Vampire</button>
-    <button onclick="changeTheme('maxton')">Maxton</button>
-    <button onclick="closeThemeModal()">Close</button>
+  <div class="topbar">
+    <button class="hamburger-btn" onclick="openSidebar()">
+      <span></span><span></span><span></span>
+    </button>
+    <span class="topbar-brand">Music 🎵</span>
+    <div class="topbar-right">
+      <button onclick="goPage('home.html')">🏠 Home</button>
+      <button onclick="goPage('flower.html')">🌻 Flowers</button>
+      <button onclick="openThemeModal()">🎨 Theme</button>
+      <button onclick="openStarModal()">⭐ Rate</button>
+      <button onclick="logout()">🚪 Logout</button>
+    </div>
   </div>
-</div>
 
+  <main class="mainContent">
+    <h2>Music Player</h2>
 
-<div id="starModal" class="starModal hidden">
-  <div class="starBox">
-    <h3>Rate Me?</h3>
+    <div class="music-player">
 
-    <div id="starContainer" class="stars"></div>
+      <!-- Album art disc -->
+      <div class="music-album-art" id="albumArt">🎵</div>
 
-    <img src="assets/gifs/star.gif" class="starGif">
+      <!-- Track info -->
+      <div class="music-track-name" id="trackName">Our Song</div>
+      <div class="music-track-sub" id="trackSub">Track 1 of 3</div>
 
-    <p id="ratingMessage"></p>
+      <!-- Progress bar -->
+      <div class="progress-wrap" onclick="seekTo(event)">
+        <div class="progress-bar" id="progressBar"></div>
+      </div>
 
-    <button onclick="closeStarModal()">Close</button>
+      <!-- Controls -->
+      <div class="music-controls">
+        <button onclick="prevTrack()" title="Previous">⏮</button>
+        <button class="play-btn" id="playPauseBtn" onclick="togglePlayPause()">▶</button>
+        <button onclick="nextTrack()" title="Next">⏭</button>
+        <button id="muteBtn" onclick="toggleMute()" title="Mute">🔊</button>
+      </div>
+
+      <!-- Volume -->
+      <div class="volume-row">
+        <span>🔈</span>
+        <input type="range" min="0" max="1" step="0.05" value="1"
+               oninput="setVolume(this.value)">
+        <span>🔊</span>
+      </div>
+
+      <!-- Playlist -->
+      <div class="playlist-header">Playlist</div>
+      <div id="playlistContainer"></div>
+
+      <!-- ============================================
+           SPOTIFY LINKS — paste your Spotify track URLs below
+           9 total: 3 per theme (summer / vampire / maxton)
+      ============================================= -->
+      <div class="spotify-section">
+        <p>🎧 Open on Spotify</p>
+
+        <!-- ☀️ SUMMER (tracks 1–3) -->
+        <div class="playlist-header" style="margin-top:10px;">☀️ Summer</div>
+        <a class="spotify-link-btn" href="SUMMER_SPOTIFY_LINK_1" target="_blank">
+          <span class="spotify-icon">🎵</span>
+          <span>Summer Song 1</span>
+        </a>
+        <a class="spotify-link-btn" href="SUMMER_SPOTIFY_LINK_2" target="_blank">
+          <span class="spotify-icon">🎵</span>
+          <span>Summer Song 2</span>
+        </a>
+        <a class="spotify-link-btn" href="SUMMER_SPOTIFY_LINK_3" target="_blank">
+          <span class="spotify-icon">🎵</span>
+          <span>Summer Song 3</span>
+        </a>
+
+        <!-- 🦇 VAMPIRE (tracks 1–3) -->
+        <div class="playlist-header" style="margin-top:14px;">🦇 Vampire</div>
+        <a class="spotify-link-btn" href="VAMPIRE_SPOTIFY_LINK_1" target="_blank">
+          <span class="spotify-icon">🎵</span>
+          <span>Vampire Song 1</span>
+        </a>
+        <a class="spotify-link-btn" href="VAMPIRE_SPOTIFY_LINK_2" target="_blank">
+          <span class="spotify-icon">🎵</span>
+          <span>Vampire Song 2</span>
+        </a>
+        <a class="spotify-link-btn" href="VAMPIRE_SPOTIFY_LINK_3" target="_blank">
+          <span class="spotify-icon">🎵</span>
+          <span>Vampire Song 3</span>
+        </a>
+
+        <!-- 💜 MAXTON (tracks 1–3) -->
+        <div class="playlist-header" style="margin-top:14px;">💜 Maxton</div>
+        <a class="spotify-link-btn" href="MAXTON_SPOTIFY_LINK_1" target="_blank">
+          <span class="spotify-icon">🎵</span>
+          <span>Maxton Song 1</span>
+        </a>
+        <a class="spotify-link-btn" href="MAXTON_SPOTIFY_LINK_2" target="_blank">
+          <span class="spotify-icon">🎵</span>
+          <span>Maxton Song 2</span>
+        </a>
+        <a class="spotify-link-btn" href="MAXTON_SPOTIFY_LINK_3" target="_blank">
+          <span class="spotify-icon">🎵</span>
+          <span>Maxton Song 3</span>
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- THEME MODAL -->
+  <div id="themeModal" class="themeModal hidden">
+    <div class="themeBox">
+      <h3>Select Your Aesthetic</h3>
+      <button class="theme-btn-summer" onclick="changeTheme('summer')">☀️ Summer</button>
+      <button class="theme-btn-vampire" onclick="changeTheme('vampire')">🦇 Vampire</button>
+      <button class="theme-btn-maxton" onclick="changeTheme('maxton')">💜 Maxton</button>
+      <button onclick="closeThemeModal()" style="background: rgba(255,255,255,0.1); margin-top: 6px;">Close</button>
+    </div>
   </div>
-</div>
+
+  <!-- STAR MODAL -->
+  <div id="starModal" class="starModal hidden">
+    <div class="starBox">
+      <h3>Rate Me? ⭐</h3>
+      <div id="starContainer" class="stars"></div>
+      <img src="assets/gifs/star.gif" class="starGif" alt="">
+      <p id="ratingMessage"></p>
+      <button onclick="closeStarModal()">Close</button>
+    </div>
+  </div>
+
+  <script src="js/app.js"></script>
+  <script>
+    // Extra play/pause toggle for the music page button
+    function togglePlayPause() {
+      if (isPlaying) { pauseMusic(); } else { playMusic(); }
+    }
+  </script>
 </body>
-
 </html>
-
